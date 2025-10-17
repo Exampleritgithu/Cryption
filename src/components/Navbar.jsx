@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { FaSearch, FaBars, FaTimes } from "react-icons/fa";
+import { FaSearch, FaBars, FaTimes, FaChevronDown } from "react-icons/fa";
 
 export default function Navbar() {
   const [isSticky, setSticky] = useState(false);
@@ -22,6 +22,10 @@ export default function Navbar() {
     { name: "Features", dropdown: ["Animations", "Integrations", "Performance"] },
     { name: "Elements", dropdown: ["Buttons", "Icons", "Forms"] },
   ];
+
+  const toggleDropdown = (index) => {
+    setActiveDropdown(activeDropdown === index ? null : index);
+  };
 
   return (
     <nav
@@ -50,7 +54,7 @@ export default function Navbar() {
             >
               {item.name}
 
-              {/* ✅ Dropdown */}
+              {/* ✅ Dropdown (Desktop) */}
               {activeDropdown === index && (
                 <ul className="absolute left-0 top-full mt-3 bg-white shadow-lg rounded-xl py-3 w-56 text-gray-700 z-50 border border-gray-100">
                   {item.dropdown.map((sub, i) => (
@@ -103,11 +107,36 @@ export default function Navbar() {
         <div className="md:hidden bg-white shadow-lg border-t border-gray-200">
           <ul className="flex flex-col text-gray-800 text-lg font-semibold px-6 py-4 space-y-3">
             {menuItems.map((item, index) => (
-              <li key={index} className="cursor-pointer hover:text-green-500">
-                {item.name}
+              <li key={index} className="cursor-pointer">
+                <div
+                  className="flex justify-between items-center py-2 hover:text-green-500"
+                  onClick={() => toggleDropdown(index)}
+                >
+                  <span>{item.name}</span>
+                  <FaChevronDown
+                    className={`transition-transform duration-300 ${
+                      activeDropdown === index ? "rotate-180 text-green-500" : ""
+                    }`}
+                  />
+                </div>
+
+                {/* ✅ Expandable Dropdown (Mobile) */}
+                {activeDropdown === index && (
+                  <ul className="pl-4 border-l-2 border-green-300 mt-2 space-y-2 text-base text-gray-600">
+                    {item.dropdown.map((sub, i) => (
+                      <li
+                        key={i}
+                        className="py-1 hover:text-green-600 transition-colors"
+                      >
+                        {sub}
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </li>
             ))}
 
+            {/* ✅ Search Input in Mobile Menu */}
             <li className="border-t pt-3">
               <div className="flex items-center gap-3">
                 <FaSearch className="text-green-500" />
