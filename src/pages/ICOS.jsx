@@ -56,7 +56,7 @@ const ICOS = () => {
   return (
     <div
       onMouseMove={handleMouseMove}
-      className="min-h-screen text-black bg-[#212f3a] p-10 transition-all duration-500"
+      className="min-h-screen text-black bg-[#212f3a] p-6 sm:p-10 transition-all duration-500"
       style={{
         backgroundImage: `url('/ICOS-bg.png')`,
         backgroundSize: "cover",
@@ -64,13 +64,18 @@ const ICOS = () => {
         backgroundRepeat: "no-repeat",
       }}
     >
-      <div className="text-center mb-24 mt-52 ">
-        <h2 className="text-6xl font-bold text-white mb-6">Cryption</h2>
-        <p className="text-gray-300 text-6xl font-light">ICOS Completed</p>
+      {/* Heading */}
+      <div className="text-center mt-32 mb-16 sm:mt-52 sm:mb-24">
+        <h2 className="text-4xl sm:text-6xl font-bold text-white mb-4">
+          Cryption
+        </h2>
+        <p className="text-gray-300 text-2xl sm:text-4xl font-light">
+          ICOS Completed
+        </p>
       </div>
 
       {/* ICO Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {icos.map((ico, index) => (
           <div
             key={index}
@@ -80,23 +85,23 @@ const ICOS = () => {
             <img
               src={ico.image}
               alt={ico.title}
-              className="w-full h-72 object-cover transition-transform duration-700 group-hover:scale-105"
+              className="w-full h-64 sm:h-72 object-cover transition-transform duration-700 group-hover:scale-105"
             />
 
             {/* Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-br from-green-500 to-green-400 opacity-0 group-hover:opacity-70 transition-all duration-500 flex items-start justify-start">
-              <div className="p-6 text-left text-gray-900">
-                <h2 className="text-2xl text-gray-800 font-bold mb-2">
+            <div className="absolute inset-0 bg-gradient-to-br from-green-500 to-green-400 opacity-0 group-hover:opacity-80 transition-all duration-500 flex items-center justify-center sm:items-start sm:justify-start">
+              <div className="p-6 text-center sm:text-left text-gray-900">
+                <h2 className="text-xl sm:text-2xl text-gray-800 font-bold mb-2">
                   {ico.title}
                 </h2>
                 <p className="font-semibold text-white">{ico.description}</p>
-                <p className="text-3xl font-bold mb-1 text-white">
+                <p className="text-2xl sm:text-3xl font-bold mb-1 text-white">
                   {ico.amount}
                 </p>
                 <p className="text-sm text-gray-800">{ico.date}</p>
 
-                {/* Action Icons */}
-                <div className="flex gap-3 mt-4">
+                {/* Buttons */}
+                <div className="flex justify-center sm:justify-start gap-3 mt-4">
                   {/* Copy Button */}
                   <button
                     onClick={() =>
@@ -121,9 +126,9 @@ const ICOS = () => {
         ))}
       </div>
 
-      {/* "View All ICOs" Button */}
+      {/* Button */}
       <div className="flex justify-center mt-12">
-        <button className="text-[#18d685] border-2 border-[#18d685] rounded-full px-8 py-4 text-3xl font-semibold hover:bg-[#18d685] hover:text-white transition mt-24 mb-24">
+        <button className="text-[#18d685] border-2 border-[#18d685] rounded-full px-6 sm:px-10 py-3 sm:py-4 text-2xl sm:text-3xl font-semibold hover:bg-[#18d685] hover:text-white transition mt-20 mb-20">
           View All ICOs
         </button>
       </div>

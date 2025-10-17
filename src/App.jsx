@@ -9,6 +9,12 @@ import ICOS from "./pages/ICOS";
 import Faqs from "./pages/Faqs";
 import Featured from "./pages/Featured";
 import Whitepaper from "./pages/Whitepaper";
+import Pricing from "./pages/Pricing";
+import TeamSection from "./pages/TeamSection";
+import Blog from "./pages/Blog";
+import Email from "./pages/Email";
+import ContactForm from "./pages/ContactForm";
+import Footer from "./components/Footer";
 function App() {
   return (
     <div className="font-sans">
@@ -23,6 +29,12 @@ function App() {
       <Faqs/>
       <Featured/>
       <Whitepaper/>
+      <Pricing/>
+    <TeamSection/>
+    <Blog/>
+    <Email/>
+    <ContactForm/>
+    <Footer/>
     </div>
   );
 }

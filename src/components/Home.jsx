@@ -51,7 +51,7 @@ export default function Home() {
   const theme = themes[currentImage];
 
   return (
-    <section className="relative w-full min-h-screen flex items-center justify-end overflow-hidden transition-all duration-1000">
+    <section className="relative w-full min-h-screen flex items-center justify-center md:justify-end overflow-hidden transition-all duration-1000">
       {/* ✅ Background Image */}
       <img
         src={images[currentImage]}
@@ -59,9 +59,16 @@ export default function Home() {
         className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000"
       />
 
+      {/* ✅ Overlay for better text readability on mobile */}
+      <div className="absolute inset-0 bg-black/40 md:bg-transparent"></div>
+
       {/* ✅ Text section */}
-      <div className="relative z-10 w-1/2 pr-24 text-left transition-colors duration-1000">
-        <h1 className={`text-6xl md:text-6xl  ${theme.textColor} leading-snug min-h-[160px]`}>
+      <div
+        className={`relative z-10 w-[90%] md:w-1/2 px-4 md:pr-24 text-center md:text-left transition-colors duration-1000`}
+      >
+        <h1
+          className={`text-3xl sm:text-4xl md:text-6xl font-bold ${theme.textColor} leading-snug min-h-[120px]`}
+        >
           {displayedText.split(" ").map((word, i) => (
             <span
               key={i}
@@ -73,21 +80,23 @@ export default function Home() {
           ))}
         </h1>
 
-        <p className={`text-2xl md:text-3xl mt-6 ${theme.subTextColor}`}>
+        <p
+          className={`text-base sm:text-lg md:text-2xl mt-4 md:mt-6 ${theme.subTextColor}`}
+        >
           ICO Advisors is a full-service agency specializing in ICO financial and
           marketing advisory as well as blockchain solutions.
         </p>
 
         {/* ✅ Buttons */}
-        <div className="flex  gap-5 mt-10">
+        <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4 sm:gap-5 mt-8 md:mt-10">
           <button
-            className={`px-8 py-3 rounded-full shadow-lg text-xl ${theme.buttonBg} ${theme.buttonText} ${theme.buttonHover} ${theme.hoverText} transition-all duration-300 animate-slide-up delay-100`}
+            className={`px-6 sm:px-8 py-3 rounded-full shadow-lg text-base sm:text-xl ${theme.buttonBg} ${theme.buttonText} ${theme.buttonHover} ${theme.hoverText} transition-all duration-300 animate-slide-up delay-100`}
           >
             Get Started
           </button>
 
           <button
-            className={`px-8 py-3 rounded-full shadow-lg text-xl bg-gray-900 text-white hover:bg-gray-700 hover:text-yellow-300 transition-all duration-300 animate-slide-up delay-200`}
+            className={`px-6 sm:px-8 py-3 rounded-full shadow-lg text-base sm:text-xl bg-gray-900 text-white hover:bg-gray-700 hover:text-yellow-300 transition-all duration-300 animate-slide-up delay-200`}
           >
             Learn More
           </button>

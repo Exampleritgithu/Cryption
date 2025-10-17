@@ -71,56 +71,54 @@ const Dolorsite = () => {
   ];
 
   return (
-    <section className="py-24 bg-white">
+    <section className="py-16 sm:py-20 md:py-28 bg-white">
       {/* Header */}
-      <div className="text-center mb-20">
-        <h2 className="text-4xl font-extrabold text-gray-800 mb-6">
+      <div className="text-center mb-16 sm:mb-20 px-4">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-800 mb-3">
           Lorem Ipsum
         </h2>
-        <h3 className="text-6xl font-light text-black mb-8">
+        <h3 className="text-3xl sm:text-4xl md:text-6xl font-light text-black mb-6">
           Dolor Sit Amet
         </h3>
-        <p className="text-gray-600 max-w-7xl mx-auto text-2xl mt-6 leading-relaxed">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
+        <p className="text-gray-600 max-w-5xl mx-auto text-base sm:text-lg md:text-2xl mt-4 leading-relaxed">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+          incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+          exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
         </p>
       </div>
 
       {/* Grid Section */}
-      <div className="max-w-12xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-20 px-6">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-14 px-4 sm:px-8 md:px-12">
         {items.map((item, index) => {
           const IconComponent = item.icon;
           return (
-            <div
+            <motion.div
               key={index}
-              className="flex items-start space-x-8 text-left p-6   transition-all duration-300"
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{
+                duration: 0.6,
+                ease: "easeOut",
+                delay: index * 0.1,
+              }}
+              viewport={{ once: true }}
+              className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left bg-gray-50 hover:bg-gray-100 rounded-2xl p-6 shadow-sm transition-all duration-300"
             >
-              {/* Animated Icon */}
-              <motion.div
-                initial={{ y: 50, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{
-                  duration: 0.6,
-                  ease: "easeOut",
-                  delay: index * 0.1,
-                }}
-                viewport={{ once: true }}
-              >
-                <IconComponent size={80} className="text-green-500 flex-shrink-0" />
-              </motion.div>
+              {/* Icon */}
+              <div className="mb-4 sm:mb-0 sm:mr-6">
+                <IconComponent size={60} className="text-green-500 flex-shrink-0" />
+              </div>
 
-              {/* Text Content */}
+              {/* Text */}
               <div>
-                <h4 className="text-3xl font-bold text-gray-800 mb-3">
+                <h4 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 mb-2">
                   {item.title}
                 </h4>
-                <p className="text-xl text-gray-600 leading-relaxed">
+                <p className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed">
                   {item.description}
                 </p>
               </div>
-            </div>
+            </motion.div>
           );
         })}
       </div>

@@ -41,23 +41,23 @@ const Featured = () => {
   }, [reviews.length]);
 
   return (
-    <div className="w-full bg-white py-20 px-6 lg:px-20">
-      <div className="grid md:grid-cols-2 gap-16 items-start">
+    <div className="w-full bg-white py-16 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-20">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-start">
         {/* ---------------- LEFT SECTION ---------------- */}
         <div>
-          <h2 className="text-4xl font-bold text-gray-900 mb-10">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-8 sm:mb-10 text-center md:text-left">
             We’ve Been Featured In
           </h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 sm:gap-8">
             {logos.map((logo) => (
               <div
                 key={logo.id}
-                className="bg-gray-100 flex items-center justify-center h-48 rounded-xl hover:shadow-lg transition transform hover:scale-105"
+                className="bg-gray-100 flex items-center justify-center h-32 sm:h-40 rounded-xl hover:shadow-lg transition transform hover:scale-105"
               >
                 <img
                   src={logo.img}
                   alt={logo.name}
-                  className="max-h-28 object-contain"
+                  className="max-h-20 sm:max-h-24 object-contain"
                 />
               </div>
             ))}
@@ -66,42 +66,42 @@ const Featured = () => {
 
         {/* ---------------- RIGHT SECTION ---------------- */}
         <div>
-          <h2 className="text-4xl font-bold text-gray-900 mb-10">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-8 sm:mb-10 text-center md:text-left">
             What Our Customers Say
           </h2>
 
-          <div className="bg-white border-l-8 border-green-500 p-10 rounded-xl relative transition-all duration-300">
-            <FaQuoteLeft className="text-green-500 text-5xl mb-6" />
+          <div className="bg-white border-l-8 border-green-500 p-6 sm:p-8 md:p-10 rounded-xl shadow-md relative transition-all duration-300">
+            <FaQuoteLeft className="text-green-500 text-4xl sm:text-5xl mb-4 sm:mb-6" />
 
             {/* Review Text */}
-            <p className="text-gray-700 leading-relaxed mb-8 text-lg transition-all duration-300 ease-in-out">
+            <p className="text-gray-700 leading-relaxed mb-6 sm:mb-8 text-base sm:text-lg transition-all duration-300 ease-in-out">
               {reviews[activeReview].text}
             </p>
 
             {/* Reviewer Info */}
-            <div className="flex items-center gap-6">
+            <div className="flex flex-col sm:flex-row items-center sm:items-start sm:gap-6 text-center sm:text-left">
               <img
                 src={reviews[activeReview].img}
                 alt={reviews[activeReview].name}
-                className="w-24 h-24 rounded-full border-4 border-green-500 object-cover shadow-md transition-all duration-500"
+                className="w-20 h-20 sm:w-24 sm:h-24 rounded-full border-4 border-green-500 object-cover shadow-md mb-4 sm:mb-0"
               />
               <div>
-                <h4 className="font-semibold text-2xl text-gray-800">
+                <h4 className="font-semibold text-xl sm:text-2xl text-gray-800">
                   {reviews[activeReview].name}
                 </h4>
-                <p className="text-gray-500 text-base">
+                <p className="text-gray-500 text-sm sm:text-base">
                   {reviews[activeReview].position}
                 </p>
               </div>
             </div>
 
             {/* Dots Navigation */}
-            <div className="flex gap-3 mt-8 justify-center">
+            <div className="flex gap-3 mt-6 sm:mt-8 justify-center">
               {reviews.map((_, index) => (
                 <div
                   key={index}
                   onClick={() => setActiveReview(index)}
-                  className={`w-4 h-4 rounded-full cursor-pointer transition-all duration-300 ${
+                  className={`w-3 h-3 sm:w-4 sm:h-4 rounded-full cursor-pointer transition-all duration-300 ${
                     activeReview === index
                       ? "bg-green-500 scale-125"
                       : "bg-gray-300 hover:bg-gray-400"
@@ -117,4 +117,3 @@ const Featured = () => {
 };
 
 export default Featured;
-
