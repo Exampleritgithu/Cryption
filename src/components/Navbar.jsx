@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { FaSearch, FaBars, FaTimes, FaChevronDown } from "react-icons/fa";
+import { Search, Menu, X, ChevronDown } from "lucide-react";
 
 export default function Navbar() {
   const [isSticky, setSticky] = useState(false);
@@ -72,9 +72,9 @@ export default function Navbar() {
 
           {/* ✅ Search Icon + Input */}
           <li className="cursor-pointer text-2xl hover:text-green-500 relative">
-            <FaSearch
+            <Search
               onClick={() => setShowSearch(!showSearch)}
-              className="transition-transform duration-200 hover:scale-110"
+              className="transition-transform duration-200 hover:scale-110 w-5 h-5"
             />
             {showSearch && (
               <input
@@ -89,13 +89,13 @@ export default function Navbar() {
         {/* ✅ Hamburger Menu Icon (Mobile Only) */}
         <div className="md:hidden flex items-center">
           {menuOpen ? (
-            <FaTimes
-              className="text-3xl text-green-500 cursor-pointer"
+            <X
+              className="w-8 h-8 text-green-500 cursor-pointer"
               onClick={() => setMenuOpen(false)}
             />
           ) : (
-            <FaBars
-              className="text-3xl text-green-500 cursor-pointer"
+            <Menu
+              className="w-8 h-8 text-green-500 cursor-pointer"
               onClick={() => setMenuOpen(true)}
             />
           )}
@@ -113,8 +113,8 @@ export default function Navbar() {
                   onClick={() => toggleDropdown(index)}
                 >
                   <span>{item.name}</span>
-                  <FaChevronDown
-                    className={`transition-transform duration-300 ${
+                  <ChevronDown
+                    className={`w-5 h-5 transition-transform duration-300 ${
                       activeDropdown === index ? "rotate-180 text-green-500" : ""
                     }`}
                   />
@@ -139,7 +139,7 @@ export default function Navbar() {
             {/* ✅ Search Input in Mobile Menu */}
             <li className="border-t pt-3">
               <div className="flex items-center gap-3">
-                <FaSearch className="text-green-500" />
+                <Search className="text-green-500 w-5 h-5" />
                 <input
                   type="text"
                   placeholder="Search..."
