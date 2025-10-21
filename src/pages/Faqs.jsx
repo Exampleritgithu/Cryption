@@ -1,5 +1,5 @@
 import React from "react";
-import { FaQuestion } from "react-icons/fa6";
+import { HelpCircle } from "lucide-react"; // Lucide replacement for FaQuestion
 
 const Faqs = () => {
   return (
@@ -8,7 +8,7 @@ const Faqs = () => {
       <div className="flex flex-col sm:flex-row items-center text-center sm:text-left gap-6">
         {/* Icon */}
         <div className="rounded-full bg-white text-[#18d685] p-5 flex justify-center items-center">
-          <FaQuestion className="text-5xl sm:text-6xl" />
+          <HelpCircle className="w-12 h-12 sm:w-14 sm:h-14" />
         </div>
 
         {/* Text */}

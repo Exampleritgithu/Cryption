@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 
 const blogs = [
   {
@@ -45,17 +45,17 @@ export default function Blog() {
       {/* Blog Layout */}
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 px-4 md:px-8">
         {/* Left: Featured Blog */}
-        <div className="relative overflow-hidden group rounded-2xl shadow-lg">
+        <div className="relative overflow-hidden group shadow-lg">
           {/* Blog Image */}
           <img
             key={blogs[current].img}
             src={blogs[current].img}
             alt={blogs[current].title}
-            className="w-full h-[300px] sm:h-[450px] md:h-[550px] lg:h-[800px] object-cover transform group-hover:scale-105 transition-all duration-700 rounded-2xl"
+            className="w-full h-[300px] sm:h-[450px] md:h-[550px] lg:h-[800px] object-cover transform group-hover:scale-105 transition-all duration-700 "
           />
 
           {/* Overlay */}
-          <div className="absolute inset-0 flex flex-col justify-end lg:justify-center lg:w-[60%] bg-black/50 p-6 sm:p-10 md:p-14 text-white rounded-2xl transition-all duration-500">
+          <div className="absolute inset-0 flex flex-col justify-end lg:justify-center lg:w-[60%] bg-black/50 p-6 sm:p-10 md:p-14 text-white  transition-all duration-500">
             <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 leading-snug">
               {blogs[current].title}
             </h3>
@@ -70,13 +70,13 @@ export default function Blog() {
                 onClick={prevBlog}
                 className="p-3 bg-white/30 hover:bg-emerald-500 hover:text-white text-emerald-400 rounded-full transition-all duration-300"
               >
-                <FaArrowLeft size={18} />
+                <ArrowLeft size={18} />
               </button>
               <button
                 onClick={nextBlog}
                 className="p-3 bg-white/30 hover:bg-emerald-500 hover:text-white text-emerald-400 rounded-full transition-all duration-300"
               >
-                <FaArrowRight size={18} />
+                <ArrowRight size={18} />
               </button>
             </div>
           </div>

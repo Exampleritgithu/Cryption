@@ -1,5 +1,5 @@
 import React from "react";
-import { FaEnvelope } from "react-icons/fa";
+import { Mail } from "lucide-react";
 
 const Email = () => {
   return (
@@ -8,7 +8,7 @@ const Email = () => {
       <div className="flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
         {/* Email Icon */}
         <div className="rounded-full bg-white text-[#18d685] p-5 flex justify-center items-center">
-          <FaEnvelope className="text-5xl sm:text-6xl" />
+          <Mail className="w-12 h-12 sm:w-14 sm:h-14" />
         </div>
 
         {/* Text */}
@@ -27,7 +27,7 @@ const Email = () => {
         />
         <button
           type="submit"
-          className="bg-[#18d685] text-white font-semibold px-8 py-3 text-base sm:text-lg w-full sm:w-auto mt-3 sm:mt-0 sm:mr-2 rounded-full sm:rounded-full hover:bg-white hover:text-[#18d685] border-2 border-[#18d685] transition duration-300"
+          className="bg-[#18d685] text-white font-semibold px-8 py-3 text-base sm:text-lg w-full sm:w-auto mt-3 sm:mt-0 sm:mr-2 rounded-full hover:bg-white hover:text-[#18d685] border-2 border-[#18d685] transition duration-300"
         >
           Subscribe
         </button>

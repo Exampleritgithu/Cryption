@@ -1,13 +1,13 @@
 import React from "react";
 import {
-  FaUser,
-  FaEnvelope,
-  FaGlobe,
-  FaFacebookF,
-  FaTwitter,
-  FaInstagram,
-  FaLinkedinIn,
-} from "react-icons/fa";
+  User,
+  Mail,
+  Globe,
+  Facebook,
+  Twitter,
+  Instagram,
+  Linkedin,
+} from "lucide-react";
 
 const ContactForm = () => {
   return (
@@ -39,7 +39,7 @@ const ContactForm = () => {
               required
               className="w-full rounded-full py-3 sm:py-4 pl-5 sm:pl-6 pr-12 sm:pr-14 text-gray-700 text-base bg-white/80 backdrop-blur-md shadow-md focus:ring-2 focus:ring-emerald-400 outline-none"
             />
-            <FaUser className="absolute right-5 sm:right-6 top-1/2 -translate-y-1/2 text-emerald-400 text-lg sm:text-xl" />
+            <User className="absolute right-5 sm:right-6 top-1/2 -translate-y-1/2 text-emerald-400 w-5 h-5 sm:w-6 sm:h-6" />
           </div>
 
           {/* Email */}
@@ -50,7 +50,7 @@ const ContactForm = () => {
               required
               className="w-full rounded-full py-3 sm:py-4 pl-5 sm:pl-6 pr-12 sm:pr-14 text-gray-700 text-base bg-white/80 backdrop-blur-md shadow-md focus:ring-2 focus:ring-emerald-400 outline-none"
             />
-            <FaEnvelope className="absolute right-5 sm:right-6 top-1/2 -translate-y-1/2 text-emerald-400 text-lg sm:text-xl" />
+            <Mail className="absolute right-5 sm:right-6 top-1/2 -translate-y-1/2 text-emerald-400 w-5 h-5 sm:w-6 sm:h-6" />
           </div>
 
           {/* Website */}
@@ -60,7 +60,7 @@ const ContactForm = () => {
               placeholder="Website *"
               className="w-full rounded-full py-3 sm:py-4 pl-5 sm:pl-6 pr-12 sm:pr-14 text-gray-700 text-base bg-white/80 backdrop-blur-md shadow-md focus:ring-2 focus:ring-emerald-400 outline-none"
             />
-            <FaGlobe className="absolute right-5 sm:right-6 top-1/2 -translate-y-1/2 text-emerald-400 text-lg sm:text-xl" />
+            <Globe className="absolute right-5 sm:right-6 top-1/2 -translate-y-1/2 text-emerald-400 w-5 h-5 sm:w-6 sm:h-6" />
           </div>
         </div>
 
@@ -93,17 +93,15 @@ const ContactForm = () => {
 
         {/* Social Media Icons */}
         <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
-          {[FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn].map(
-            (Icon, i) => (
-              <a
-                key={i}
-                href="#"
-                className="bg-black text-white p-3 sm:p-4 rounded-full hover:bg-emerald-500 transition-all duration-300 text-lg sm:text-2xl"
-              >
-                <Icon />
-              </a>
-            )
-          )}
+          {[Facebook, Twitter, Instagram, Linkedin].map((Icon, i) => (
+            <a
+              key={i}
+              href="#"
+              className="bg-black text-white p-3 sm:p-4 rounded-full hover:bg-emerald-500 transition-all duration-300"
+            >
+              <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
+            </a>
+          ))}
         </div>
       </div>
     </div>

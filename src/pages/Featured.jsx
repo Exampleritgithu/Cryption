@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { FaQuoteLeft } from "react-icons/fa";
+import { Quote } from "lucide-react"; // ✅ Replaced FaQuoteLeft with Lucide Quote
 
 const Featured = () => {
   // ✅ Company Logos
@@ -71,7 +71,8 @@ const Featured = () => {
           </h2>
 
           <div className="bg-white border-l-8 border-green-500 p-6 sm:p-8 md:p-10 rounded-xl shadow-md relative transition-all duration-300">
-            <FaQuoteLeft className="text-green-500 text-4xl sm:text-5xl mb-4 sm:mb-6" />
+            {/* ✅ Lucide Quote Icon */}
+            <Quote className="text-green-500 w-10 h-10 sm:w-12 sm:h-12 mb-4 sm:mb-6" />
 
             {/* Review Text */}
             <p className="text-gray-700 leading-relaxed mb-6 sm:mb-8 text-base sm:text-lg transition-all duration-300 ease-in-out">

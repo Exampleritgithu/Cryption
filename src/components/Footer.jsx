@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  FaPhone,
-  FaFax,
-  FaEnvelope,
-  FaGlobe,
-  FaMapMarkerAlt,
-} from "react-icons/fa";
+import { Phone, Printer, Mail, Globe, MapPin } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -15,7 +9,6 @@ const Footer = () => {
         <div>
           <div className="flex items-center gap-3 mb-6">
             <img src="/Logo.png" alt="Logo" className="w-40 h-15" />
-            
           </div>
           <p className="text-gray-400 leading-relaxed mb-6">
             ICO Landing Page Template. Lorem ipsum dolor sit amet, consectetur
@@ -32,7 +25,7 @@ const Footer = () => {
           <h3 className="text-white text-xl font-bold mb-6">Contacts</h3>
 
           <p className="flex items-start gap-3 mb-4">
-            <FaMapMarkerAlt className="text-emerald-400 text-lg mt-1" />
+            <MapPin className="text-emerald-400 w-5 h-5 mt-1" />
             908 New Hampshire Avenue #100,
             <br />
             Washington, DC 20037, United States
@@ -41,19 +34,19 @@ const Footer = () => {
           <div className="border-t border-gray-700 my-4"></div>
 
           <p className="flex items-center gap-3 mb-2">
-            <FaPhone className="text-emerald-400" /> +1 916-85-2235
+            <Phone className="text-emerald-400 w-5 h-5" /> +1 916-85-2235
           </p>
           <p className="flex items-center gap-3 mb-2">
-            <FaFax className="text-emerald-400" /> +1 916-85-2235
+            <Printer className="text-emerald-400 w-5 h-5" /> +1 916-85-2235
           </p>
           <p className="flex items-center gap-3 mb-2">
-            <FaEnvelope className="text-emerald-400" />{" "}
+            <Mail className="text-emerald-400 w-5 h-5" />
             <a href="mailto:info@cryption.network" className="hover:text-white">
               info@cryption.network
             </a>
           </p>
           <p className="flex items-center gap-3">
-            <FaGlobe className="text-emerald-400" />{" "}
+            <Globe className="text-emerald-400 w-5 h-5" />
             <a
               href="https://cryption.network"
               className="text-emerald-400 hover:text-white"

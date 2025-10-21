@@ -1,8 +1,32 @@
 import React, { useState } from "react";
-import { FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
+import { Facebook, Twitter, Linkedin } from "lucide-react"; // ✅ Lucide icons
 
 const teamMembers = [
   {
+    name: "Herman Ledford",
+    title: "Founder, Crypto Mediator",
+    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    img: "/Team-1.jpg",
+  },
+  {
+    name: "Emerson Anderson",
+    title: "CEO",
+    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    img: "/Team2.jpg",
+  },
+  {
+    name: "Steven Beals",
+    title: "CTO",
+    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    img: "/Team3.jpg",
+  },
+  {
+    name: "Evelyn Snyder",
+    title: "Head of Sales",
+    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    img: "/Team4.jpg",
+  },
+   {
     name: "Herman Ledford",
     title: "Founder, Crypto Mediator",
     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.",
@@ -73,7 +97,7 @@ export default function TeamSection() {
         {teamMembers.map((member, index) => (
           <div
             key={index}
-            className="p-6 rounded-2xl bg-white/10 hover:bg-white/20 backdrop-blur-md transition duration-300 hover:-translate-y-2"
+            className="p-6  bg-white/10 hover:bg-white/20 backdrop-blur-md transition duration-300 hover:-translate-y-2"
           >
             <img
               src={member.img}
@@ -90,25 +114,25 @@ export default function TeamSection() {
               {member.desc}
             </p>
 
-            {/* Social Icons */}
+            {/* ✅ Social Icons (Lucide) */}
             <div className="flex justify-center mt-6 space-x-4">
               <a
                 href="#"
                 className="p-2 rounded-full bg-white/50 hover:bg-white/40 transition"
               >
-                <FaFacebookF className="text-emerald-500 text-xl" />
+                <Facebook className="text-emerald-500 w-5 h-5" />
               </a>
               <a
                 href="#"
                 className="p-2 rounded-full bg-white/50 hover:bg-white/40 transition"
               >
-                <FaTwitter className="text-emerald-500 text-xl" />
+                <Twitter className="text-emerald-500 w-5 h-5" />
               </a>
               <a
                 href="#"
                 className="p-2 rounded-full bg-white/50 hover:bg-white/40 transition"
               >
-                <FaLinkedinIn className="text-emerald-500 text-xl" />
+                <Linkedin className="text-emerald-500 w-5 h-5" />
               </a>
             </div>
           </div>
