@@ -1,5 +1,5 @@
 import React from "react";
-import { FaChartLine, FaLaptopCode, FaCoins } from "react-icons/fa";
+import { TrendingUp, Laptop, Coins } from "lucide-react";
 
 const services = [
   {
@@ -7,7 +7,7 @@ const services = [
     title: "Token Launch Consulting",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
-    icon: <FaChartLine className="text-4xl text-[#13232f]" />,
+    icon: <TrendingUp className="w-10 h-10 text-[#13232f]" />,
     imgLeft:
       "https://images.unsplash.com/photo-1581091215367-59ab6c34a4d2?auto=format&fit=crop&w=800&q=80",
     imgRight:
@@ -18,7 +18,7 @@ const services = [
     title: "Blockchain Development",
     description:
       "We build secure and scalable blockchain applications tailored to your project’s goals and requirements.",
-    icon: <FaLaptopCode className="text-4xl text-[#13232f]" />,
+    icon: <Laptop className="w-10 h-10 text-[#13232f]" />,
     imgLeft:
       "https://images.unsplash.com/photo-1555949963-aa79dcee981d?auto=format&fit=crop&w=800&q=80",
     imgRight:
@@ -29,7 +29,7 @@ const services = [
     title: "Crypto Token Marketing",
     description:
       "Grow your project’s visibility with strategic campaigns designed to attract and retain investors.",
-    icon: <FaCoins className="text-4xl text-[#13232f]" />,
+    icon: <Coins className="w-10 h-10 text-[#13232f]" />,
     imgLeft:
       "https://images.unsplash.com/photo-1605902711622-cfb43c4437d1?auto=format&fit=crop&w=800&q=80",
     imgRight:
@@ -58,7 +58,7 @@ const ServicesDrop = () => {
 
           {/* Middle Content */}
           <div className="md:w-1/3 w-full flex flex-col justify-center items-center bg-[#13232f] text-white p-8 sm:p-10 text-center">
-            <div className="bg-green-400 rounded-full p-5 sm:p-6 mb-6 flex items-center justify-center">
+            <div className="bg-emerald-400 rounded-full p-5 sm:p-6 mb-6 flex items-center justify-center">
               {service.icon}
             </div>
             <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">

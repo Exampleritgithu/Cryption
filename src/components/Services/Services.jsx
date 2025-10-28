@@ -1,4 +1,10 @@
 import React from "react";
+import {
+  Briefcase,
+  Megaphone,
+  Scale,
+  PenTool,
+} from "lucide-react"; // ✅ Lucide icons
 
 export default function Services() {
   const services = [
@@ -6,85 +12,25 @@ export default function Services() {
       title: "ICO Advisory",
       desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.",
       bg: "bg-[#0B1B2A]",
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-8 h-8 sm:w-10 sm:h-10"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M17 20h5v-2a8 8 0 10-16 0v2h5"
-          />
-        </svg>
-      ),
+      icon: <Briefcase className="w-8 h-8 sm:w-10 sm:h-10 text-white" />,
     },
     {
       title: "Promotion & Marketing",
       desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.",
       bg: "bg-[#00695C]",
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-8 h-8 sm:w-10 sm:h-10"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M12 3v12l8-6-8-6z"
-          />
-        </svg>
-      ),
+      icon: <Megaphone className="w-8 h-8 sm:w-10 sm:h-10 text-white" />,
     },
     {
       title: "Legal Framework",
       desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.",
       bg: "bg-[#0097A7]",
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-8 h-8 sm:w-10 sm:h-10"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M5 10h14M5 6h14M5 14h14M5 18h14"
-          />
-        </svg>
-      ),
+      icon: <Scale className="w-8 h-8 sm:w-10 sm:h-10 text-white" />,
     },
     {
       title: "Token Design",
       desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.",
       bg: "bg-[#00BFA5]",
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-8 h-8 sm:w-10 sm:h-10"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M12 6v6l4 2"
-          />
-        </svg>
-      ),
+      icon: <PenTool className="w-8 h-8 sm:w-10 sm:h-10 text-white" />,
     },
   ];
 
