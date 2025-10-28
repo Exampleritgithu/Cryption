@@ -1,11 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Search, Menu, X, ChevronDown } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const [isSticky, setSticky] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
+  const timeoutRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => setSticky(window.scrollY > 50);
@@ -14,17 +16,54 @@ export default function Navbar() {
   }, []);
 
   const menuItems = [
-    { name: "About", dropdown: ["Our Story", "Team", "Mission"] },
-    { name: "Services", dropdown: ["Web Development", "SEO Optimization", "UI/UX Design"] },
-    { name: "Portfolio", dropdown: ["Web Projects", "Mobile Apps", "Branding"] },
-    { name: "News & Blog", dropdown: ["Latest News", "Articles", "Case Studies"] },
-    { name: "Contact", dropdown: ["Contact Form", "Map", "Support"] },
-    { name: "Features", dropdown: ["Animations", "Integrations", "Performance"] },
-    { name: "Elements", dropdown: ["Buttons", "Icons", "Forms"] },
+    {
+      name: "About",
+      dropdown: [
+        { label: "About Us", path: "/about" },
+        { label: "About Us Skills" },
+      ],
+    },
+    {
+      name: "Services",
+      dropdown: [{ label: "Services" }, { label: "Services page" }],
+    },
+    {
+      name: "News & Blog",
+      dropdown: [
+        { label: "Latest News" },
+        { label: "Articles" },
+        { label: "Case Studies" },
+      ],
+    },
+    {
+      name: "Contact",
+      path: "/contact", // ✅ Simple link
+    },
+    {
+      name: "Portfolio",
+      path: "/Portfolio", // ✅ Simple link (no dropdown)
+    },
+    {
+      name: "Features",
+      path: "/featured", // ✅ Simple link (no dropdown)
+    },
   ];
 
   const toggleDropdown = (index) => {
+    if (!menuItems[index].dropdown) return; // ✅ Skip for Contact & Features
     setActiveDropdown(activeDropdown === index ? null : index);
+  };
+
+  const handleMouseEnter = (index) => {
+    if (!menuItems[index].dropdown) return; // ✅ Skip hover for Contact & Features
+    clearTimeout(timeoutRef.current);
+    setActiveDropdown(index);
+  };
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setActiveDropdown(null);
+    }, 300);
   };
 
   return (
@@ -44,33 +83,44 @@ export default function Navbar() {
         </div>
 
         {/* ✅ Desktop Menu */}
-        <ul className="hidden md:flex gap-10 text-black font-semibold text-lg relative items-center">
+        <ul className="hidden md:flex gap-10 text-black font-semibold text-xl relative items-center">
           {menuItems.map((item, index) => (
             <li
               key={index}
               className="relative group cursor-pointer hover:text-green-500 transition-all"
-              onMouseEnter={() => setActiveDropdown(index)}
-              onMouseLeave={() => setActiveDropdown(null)}
+              onMouseEnter={() => handleMouseEnter(index)}
+              onMouseLeave={handleMouseLeave}
             >
-              {item.name}
+              {item.path ? <Link to={item.path}>{item.name}</Link> : item.name}
 
-              {/* ✅ Dropdown (Desktop) */}
-              {activeDropdown === index && (
-                <ul className="absolute left-0 top-full mt-3 bg-white shadow-lg rounded-xl py-3 w-56 text-gray-700 z-50 border border-gray-100">
-                  {item.dropdown.map((sub, i) => (
-                    <li
-                      key={i}
-                      className="px-5 py-2 hover:bg-green-100 hover:text-green-600 transition-colors"
-                    >
-                      {sub}
-                    </li>
-                  ))}
+              {/* ✅ Dropdown (Desktop Only if exists) */}
+              {item.dropdown && activeDropdown === index && (
+                <ul className="absolute left-0 top-full mt-3 bg-white shadow-lg rounded-xl py-3 w-56 text-gray-700 z-50 border border-gray-100 transition-opacity duration-300">
+                  {item.dropdown.map((sub, i) =>
+                    sub.path ? (
+                      <li key={i}>
+                        <Link
+                          to={sub.path}
+                          className="block px-5 py-2 hover:bg-green-100 hover:text-green-600 transition-colors"
+                        >
+                          {sub.label}
+                        </Link>
+                      </li>
+                    ) : (
+                      <li
+                        key={i}
+                        className="px-5 py-2 hover:bg-green-100 hover:text-green-600 transition-colors"
+                      >
+                        {sub.label}
+                      </li>
+                    )
+                  )}
                 </ul>
               )}
             </li>
           ))}
 
-          {/* ✅ Search Icon + Input */}
+          {/* ✅ Search Icon */}
           <li className="cursor-pointer text-2xl hover:text-green-500 relative">
             <Search
               onClick={() => setShowSearch(!showSearch)}
@@ -86,7 +136,7 @@ export default function Navbar() {
           </li>
         </ul>
 
-        {/* ✅ Hamburger Menu Icon (Mobile Only) */}
+        {/* ✅ Hamburger Menu (Mobile) */}
         <div className="md:hidden flex items-center">
           {menuOpen ? (
             <X
@@ -102,41 +152,67 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* ✅ Mobile Dropdown Menu */}
+      {/* ✅ Mobile Menu */}
       {menuOpen && (
         <div className="md:hidden bg-white shadow-lg border-t border-gray-200">
           <ul className="flex flex-col text-gray-800 text-lg font-semibold px-6 py-4 space-y-3">
             {menuItems.map((item, index) => (
               <li key={index} className="cursor-pointer">
-                <div
-                  className="flex justify-between items-center py-2 hover:text-green-500"
-                  onClick={() => toggleDropdown(index)}
-                >
-                  <span>{item.name}</span>
-                  <ChevronDown
-                    className={`w-5 h-5 transition-transform duration-300 ${
-                      activeDropdown === index ? "rotate-180 text-green-500" : ""
-                    }`}
-                  />
-                </div>
+                {item.path ? (
+                  // ✅ Direct link (Contact & Features)
+                  <Link
+                    to={item.path}
+                    className="block py-2 hover:text-green-500 transition-all"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                ) : (
+                  <>
+                    <div
+                      className="flex justify-between items-center py-2 hover:text-green-500"
+                      onClick={() => toggleDropdown(index)}
+                    >
+                      <span>{item.name}</span>
+                      <ChevronDown
+                        className={`w-5 h-5 transition-transform duration-300 ${
+                          activeDropdown === index
+                            ? "rotate-180 text-green-500"
+                            : ""
+                        }`}
+                      />
+                    </div>
 
-                {/* ✅ Expandable Dropdown (Mobile) */}
-                {activeDropdown === index && (
-                  <ul className="pl-4 border-l-2 border-green-300 mt-2 space-y-2 text-base text-gray-600">
-                    {item.dropdown.map((sub, i) => (
-                      <li
-                        key={i}
-                        className="py-1 hover:text-green-600 transition-colors"
-                      >
-                        {sub}
-                      </li>
-                    ))}
-                  </ul>
+                    {/* ✅ Dropdown (Mobile Only if exists) */}
+                    {item.dropdown && activeDropdown === index && (
+                      <ul className="pl-4 border-l-2 border-green-300 mt-2 space-y-2 text-base text-gray-600">
+                        {item.dropdown.map((sub, i) =>
+                          sub.path ? (
+                            <li key={i}>
+                              <Link
+                                to={sub.path}
+                                className="py-1 hover:text-green-600 transition-colors block"
+                              >
+                                {sub.label}
+                              </Link>
+                            </li>
+                          ) : (
+                            <li
+                              key={i}
+                              className="py-1 hover:text-green-600 transition-colors"
+                            >
+                              {sub.label}
+                            </li>
+                          )
+                        )}
+                      </ul>
+                    )}
+                  </>
                 )}
               </li>
             ))}
 
-            {/* ✅ Search Input in Mobile Menu */}
+            {/* ✅ Search in Mobile Menu */}
             <li className="border-t pt-3">
               <div className="flex items-center gap-3">
                 <Search className="text-green-500 w-5 h-5" />

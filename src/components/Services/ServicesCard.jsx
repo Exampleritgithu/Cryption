@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function Services() {
-  const services = [
+  const servicesCard = [
     {
       title: "ICO Advisory",
       desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.",
@@ -90,20 +90,20 @@ export default function Services() {
 
   return (
     <section className="flex flex-col md:flex-row flex-wrap w-full text-white">
-      {services.map((service, i) => (
+      {servicesCard.map((service, i) => (
         <div
           key={i}
-          className={`${service.bg} flex-1 p-8 sm:p-10 lg:p-14 relative flex flex-col justify-center items-center text-center transition-transform duration-500 hover:-translate-y-2`}
+          className={`${service.bg} w-full sm:w-1/2 lg:w-1/4 p-8 sm:p-10 lg:p-14 relative flex flex-col justify-center items-center text-center transition-transform duration-500 hover:-translate-y-2`}
         >
-          {/* ✅ Icon on top-right corner */}
-          <div className="absolute top-6 right-6 sm:top-10 sm:right-10 p-4 sm:p-5 bg-white/10 rounded-full hover:bg-white/20 transition-all duration-300">
+          {/* Icon */}
+          <div className="absolute top-6 right-6 sm:top-10 sm:right-10 p-3 sm:p-4 bg-white/10 rounded-full hover:bg-white/20 transition-all duration-300">
             {service.icon}
           </div>
 
-          {/* ✅ Text Content */}
-          <div className="mt-36 sm:mt-52 text-left">
-            <h3 className="text-2xl sm:text-3xl font-bold mb-4">{service.title}</h3>
-            <p className="text-gray-200 text-base sm:text-lg max-w-[90%] sm:max-w-[70%] mt-4 sm:mt-6 mb-16 sm:mb-24">
+          {/* Text Content */}
+          <div className="mt-20 sm:mt-28 md:mt-36 text-left">
+            <h3 className="text-xl sm:text-2xl font-bold mb-3">{service.title}</h3>
+            <p className="text-gray-200 text-sm sm:text-base max-w-[90%] sm:max-w-[80%] mt-2 sm:mt-4 mb-8 sm:mb-12">
               {service.desc}
             </p>
           </div>

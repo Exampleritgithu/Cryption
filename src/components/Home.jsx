@@ -22,7 +22,6 @@ export default function Home() {
       hoverText: "hover:text-white",
     },
   ];
-
   const [currentImage, setCurrentImage] = useState(0);
   const [displayedText, setDisplayedText] = useState("");
   const fullText = "We Guide Companies Through ICOs";
