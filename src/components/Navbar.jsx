@@ -20,21 +20,15 @@ export default function Navbar() {
       name: "About",
       dropdown: [
         { label: "About Us", path: "/about" },
-        { label: "About Us Skills" },
+        { label: "About Us Skills", path:"/src/components/about/AboutUsSkills.jsx" },
       ],
     },
     {
       name: "Services",
-      dropdown: [{ label: "Services" }, { label: "Services page" }],
+      dropdown: [{ label: "Services",path:"/src/components/Services/Services.jsx" }, 
+        { label: "Services page" ,path:"/src/components/Services/ServicesCard.jsx" }],
     },
-    {
-      name: "News & Blog",
-      dropdown: [
-        { label: "Latest News" },
-        { label: "Articles" },
-        { label: "Case Studies" },
-      ],
-    },
+   
     {
       name: "Contact",
       path: "/contact", // ✅ Simple link
