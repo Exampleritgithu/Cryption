@@ -77,7 +77,7 @@ function App() {
 
           {/* 🛠 Services */}
           <Route path="/src/components/Services/Services.jsx" element={<Services />} />
-          <Route path="/src/components/Services/ServicesPageCol.jsx" element={<ServicesCard />} />
+          <Route path="/src/components/Services/ServicesPageCol.jsx" element={<ServicesPageCol />} />
           <Route path="/services/drop" element={<ServicesDrop />} />
           <Route path="/services/pagecol" element={<ServicesPageCol />} />
 
